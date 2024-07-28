@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# NotedBook App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the NotedBook app! This project is designed to help learners understand several important concepts in modern web development, including:
 
-## Available Scripts
+- **React Context API** for state management
+- **Express.js** and **Node.js** for backend development
+- **JWT (JSON Web Tokens)** for authentication
+- **Password encryption** for secure authentication
+- **CRUD operations** (Create, Read, Update, Delete) for managing notes
+- **React Hooks** such as `useEffect` and `useRef` for functional component state management and side effects
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+The NotedBook app is a simple notebook application that allows users to create, update, read, and delete notes. It provides hands-on experience with both frontend and backend technologies, demonstrating how to build a full-stack application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Concepts Covered
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **React Context API**: Learn how to manage global state in React applications without prop drilling.
+2. **Express.js & Node.js**: Get practical experience building RESTful APIs and handling server-side logic.
+3. **JWT (JSON Web Tokens)**: Understand how to secure API endpoints and manage user authentication.
+4. **Password Encryption**: Explore techniques to securely handle user passwords.
+5. **React Hooks**: Use `useEffect` to manage side effects and `useRef` for accessing DOM elements.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Create**: Add new notes to your notebook.
+- **Read**: View existing notes.
+- **Update**: Edit and save changes to existing notes.
+- **Delete**: Remove notes from the notebook.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**: React, Context API, `useEffect`, `useRef`
+- **Backend**: Node.js, Express.js
+- **Authentication**: JWT
+- **Password Encryption**: bcrypt
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend Setup
 
-### `npm run eject`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/notedbook-app.git
+    cd notedbook-app/frontend
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Create a `.env` file in the `frontend` directory and add the following environment variables:
+    ```
+    REACT_APP_API_URL=http://localhost:5000
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the development server:
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend Setup
 
-## Learn More
+1. Navigate to the `backend` directory:
+    ```bash
+    cd notedbook-app/backend
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Create a `.env` file in the `backend` directory and add the following environment variables:
+    ```
+    JWT_SECRET=your_jwt_secret
+    ```
 
-### Code Splitting
+4. Start the server:
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. Open the frontend application in your browser (usually at `http://localhost:5000`).
+2. Register a new user or log in with existing credentials.
+3. Use the provided UI to create, view, update, and delete notes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Example API Endpoints
 
-### Making a Progressive Web App
+- **POST /api/notes**: Create a new note
+- **GET /api/notes**: Retrieve all notes
+- **PUT /api/notes/:id**: Update a specific note
+- **DELETE /api/notes/:id**: Delete a specific note
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+Feel free to fork the repository and submit pull requests. Contributions are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

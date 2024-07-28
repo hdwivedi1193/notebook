@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  padding: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-body {
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0 0 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.card-text {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-date {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.card .fa {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.card .fa-trash {
+  color: red;
+  margin-right: 36px;
+}
+
+.card .fa-edit {
+  color: blue;
+}
+
+.card .fa:hover {
+  opacity: 0.8;
 }
