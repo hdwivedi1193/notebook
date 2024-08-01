@@ -14,7 +14,15 @@ const private_auth_key= process.env.JWT_SECRET_KEY
 router.post('/create/user',[
      body('name').notEmpty(),
      body('email').isEmail(),
-     body('password').isLength({ min: 6 })
+     body('password').isLength({ min: 6 }),
+     body('cpassword').isLength({ min: 6 }).custom((value, { req }) => {
+          if (value !== req.body.password) {
+               throw new Error('Password confirmation does not match password');
+          }else{
+               return true;
+          }
+            })
+
    ],async (req,res)=>{
 
      // Finds the validation errors in this request and wraps them in an object with handy functions
@@ -24,6 +32,7 @@ router.post('/create/user',[
   }
 
 try{
+
      // User Creation goes here with encrypted password
      const user= await UserSchema.create({
           name: req.body.name,
@@ -31,7 +40,7 @@ try{
           password: bcrypt.hashSync(req.body.password, salt)
         });
      
-        res.json(user)
+        res.status(200).json({status:200})
 }catch(err){
      res.status(400).json(err.message)
 
@@ -51,12 +60,11 @@ router.post('/login',[
        return res.status(400).json({ errors: errors.array() });
      }
 
-     const findUser= await UserSchema.findOne({email:req.body.email})
+     const findUser= await UserSchema.findOne({email:req.body.email}).select('password')
 
      if(!findUser){
           return res.status(400).json({errors:"User Not found"})
      }
-
      const checkPassword=bcrypt.compareSync(req.body.password, findUser.password); // compare plain with hash
 
      if(!checkPassword){
@@ -64,9 +72,14 @@ router.post('/login',[
      }
 
      const token=jwt.sign({ id: findUser._id }, private_auth_key);
+     if(token){
+          return res.json({status:200,token:token})
 
+     }else{
+          return res.json({status:400,token:null})
 
-     return res.json(token)
+     }
+
 
 })
 

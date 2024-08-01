@@ -90,10 +90,10 @@ The NotedBook app is a simple notebook application that allows users to create, 
 
 ## Example API Endpoints
 
-- **POST /api/notes**: Create a new note
-- **GET /api/notes**: Retrieve all notes
-- **PUT /api/notes/:id**: Update a specific note
-- **DELETE /api/notes/:id**: Delete a specific note
+- **POST /api/notes/create**: Create a new note
+- **GET /api/notes/all**: Retrieve all notes
+- **PUT /api/notes/update/:id**: Update a specific note
+- **DELETE /api/notes/delete/:id**: Delete a specific note
 
 ## Contributing
 

@@ -6,6 +6,8 @@ export default function DeleteNotes(props) {
 
     const deleteNote = async (id) => {
         await context.deleteNotes(id)
+        props.showAlert(200,"Deleted Successfully")
+
     }
     return (
         <div>

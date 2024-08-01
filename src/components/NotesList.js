@@ -3,7 +3,7 @@ import NoteContext from '../context/noteContext'
 import DeleteNotes from './DeleteNotes';
 import EditNotes from './EditNotes';
 
-export default function NotesList() {
+export default function NotesList(props) {
     const context = useContext(NoteContext)
     const modalRef = useRef(0);
     const closeRef= useRef(0);
@@ -31,7 +31,8 @@ export default function NotesList() {
 
     const updateNote=async(id)=>{
         closeRef.current.click()
-        const updateData=await context.updateNotes(note)
+        await context.updateNotes(note)
+        props.showAlert(200,"Updated Successfully")
 
 
     }
@@ -68,7 +69,7 @@ export default function NotesList() {
             </div>
             <div className='row'>
                 {
-                    context.notes.map((elements) => {
+                    context.notes.length>0 && context.notes.map((elements) => {
                         return <div className="col-sm-6" key={elements._id} >
                             <div className="card">
                                 <div className="card-body">
@@ -76,9 +77,9 @@ export default function NotesList() {
                                     <p className="card-text">{elements.description}</p>
                                     <p className="card-text">{new Date(elements.date).toLocaleDateString()}</p>
                                 </div>
-                                <DeleteNotes deleteId={elements._id}></DeleteNotes>
+                                <DeleteNotes deleteId={elements._id} showAlert={props.showAlert}></DeleteNotes>
                                 
-                                <EditNotes editId={elements._id} editNoteData={editNoteData} ></EditNotes>
+                                <EditNotes editId={elements._id} editNoteData={editNoteData} showAlert={props.showAlert} ></EditNotes>
                             </div>
 
                         </div>

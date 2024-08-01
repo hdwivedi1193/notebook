@@ -43,9 +43,7 @@ router.put('/update/:id', fetchAuthUser, [
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-    console.log(req.params.id)
     const findNotes= await NotesSchema.findById(req.params.id)
-    console.log(findNotes);
     if(!findNotes){
         return res.status(400).json({error:"No notes found"})
     }

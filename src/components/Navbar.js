@@ -2,14 +2,34 @@ import React from 'react'
 
 import {
     Link,
-    useLocation
+    useLocation,
+    useNavigate 
 } from "react-router-dom";
 
 
-export default function Navbar() {
+export default function Navbar(props) {
     let locations = useLocation();
     React.useEffect(() => {
     }, [locations]);
+
+    const history=useNavigate();
+
+    const handleLogin=()=>{
+        history("/login");
+
+    }
+    const handleSignup=()=>{
+        history("/signup");
+
+    }
+
+    const handleLogout=()=>{
+        localStorage.removeItem("auth_token")
+        props.showAlert(200,"LoggedOut Successfully")
+
+        history("/login");
+
+    }
 
     return (
         <div>
@@ -24,6 +44,10 @@ export default function Navbar() {
                                 <Link className={`nav-link ${locations.pathname == `/about` ? `active` : ""}`} to="/about">About</Link>
                             </li>
                         </ul>
+                        {
+                        localStorage.getItem("auth_token") && localStorage.getItem("auth_token")!=null?<button className="btn btn-outline-success me-2" type="button" onClick={handleLogout}>Logout</button>:<><button className="btn btn-outline-success me-2" type="button" onClick={handleLogin}>Login</button><button className="btn btn-outline-success me-2" type="button" onClick={handleSignup} >SignUp</button> </>
+                        }
+                        
 
                     </div>
                 </div>
