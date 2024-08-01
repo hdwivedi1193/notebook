@@ -11,7 +11,7 @@ Welcome to the NotedBook app! This project is designed to help learners understa
 
 ## Project Overview
 
-The NotedBook app is a simple notebook application that allows users to create, update, read, and delete notes. It provides hands-on experience with both frontend and backend technologies, demonstrating how to build a full-stack application.
+The NotedBook app is a notebook application that allows users to create, update, read, and delete notes. Users can securely log in and sign up to manage their notes individually. This app demonstrates how to build a full-stack application with user authentication and personalized data access.
 
 ## Key Concepts Covered
 
@@ -20,6 +20,7 @@ The NotedBook app is a simple notebook application that allows users to create, 
 3. **JWT (JSON Web Tokens)**: Understand how to secure API endpoints and manage user authentication.
 4. **Password Encryption**: Explore techniques to securely handle user passwords.
 5. **React Hooks**: Use `useEffect` to manage side effects and `useRef` for accessing DOM elements.
+6. **Authentication Context**: Manage authentication state and user data using React Context API.
 
 ## Features
 
@@ -27,6 +28,8 @@ The NotedBook app is a simple notebook application that allows users to create, 
 - **Read**: View existing notes.
 - **Update**: Edit and save changes to existing notes.
 - **Delete**: Remove notes from the notebook.
+- **Login/Signup**: Secure user authentication with login and signup functionality.
+- **User-Specific Notes**: Each user can view and manage their own notes.
 
 ## Technologies Used
 
@@ -84,18 +87,23 @@ The NotedBook app is a simple notebook application that allows users to create, 
 
 ## Usage
 
-1. Open the frontend application in your browser (usually at `http://localhost:5000`).
+1. Open the frontend application in your browser (usually at `http://localhost:3000`).
 2. Register a new user or log in with existing credentials.
-3. Use the provided UI to create, view, update, and delete notes.
+3. Use the provided UI to create, view, update, and delete your notes. Each user can only manage their own notes.
 
 ## Example API Endpoints
 
-- **POST /api/notes/create**: Create a new note
-- **GET /api/notes/all**: Retrieve all notes
-- **PUT /api/notes/update/:id**: Update a specific note
-- **DELETE /api/notes/delete/:id**: Delete a specific note
+- **POST api/auth/create/user**: Register a new user
+- **POST /api/auth/login**: Log in an existing user
+- **POST /api/notes/create**: Create a new note (authenticated)
+- **GET /api/notes/all**: Retrieve all notes for the logged-in user
+- **PUT /api/notes/update/:id**: Update a specific note (authenticated)
+- **DELETE /api/notes/delete/:id**: Delete a specific note (authenticated)
+
+## Auth Context
+
+To manage authentication state and user data, the app utilizes an **Auth Context**. This context provides methods for logging in, signing up, and tracking the current user's authentication state throughout the application.
 
 ## Contributing
 
 Feel free to fork the repository and submit pull requests. Contributions are welcome!
-
