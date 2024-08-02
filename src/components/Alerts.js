@@ -4,11 +4,16 @@ export default function Alerts(props) {
   const [alerts, setAlert] = useState(0);
   useEffect(() => {
     if (props.alert.status && props.alert.status != null) {
-      document.getElementById('alert-data').classList.add('show')
-      const timer = setTimeout(() => {
-        document.getElementById('alert-data').classList.remove('show')
-        document.getElementById('alert-data').classList.add('hide')
-      }, 3000);
+      try{
+        document.getElementById('alert-data').classList.add('show')
+        const timer = setTimeout(() => {
+          document.getElementById('alert-data').classList.remove('show')
+          document.getElementById('alert-data').classList.add('hide')
+        }, 3000);
+      }catch(e){
+        
+      }
+      
 
     }
   })
